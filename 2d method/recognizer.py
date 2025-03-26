@@ -6,7 +6,7 @@ from collections import defaultdict
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.ndimage import maximum_filter, label, find_objects  # Добавлены необходимые импорты
+from scipy.ndimage import maximum_filter, label, find_objects 
 
 
 def load_song_id_map(filepath="song_id_map.pkl"):
@@ -112,7 +112,7 @@ def recognize_song(query_filepath, db_path="fingerprint_db.pkl", song_id_map_pat
 
 
 if __name__ == "__main__":
-    query_file = "../wav_folder/Linkin_Park_-_Breaking_The_Habit.wav"  # Замените на путь к вашему файлу-запросу
+    query_file = "../wav_folder/Linkin_Park_-_Breaking_The_Habit.wav"
     results = recognize_song(query_file)
     print(results)
     if results:
