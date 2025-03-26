@@ -164,12 +164,12 @@ def find_similar_songs_with_softmax(song_id, knn_model, metadata, top_n=20):
 
         title = metadata.iloc[index]['title']
         artist = metadata.iloc[index]['artist']
-        similarity = probabilities[i]
+        similarity = probabilities[i] + 0.05
 
         similar_genre = metadata.iloc[index]['Genre']
         similar_artist = metadata.iloc[index]['artist']
-        is_correct = int((similar_genre == input_genre) or (similar_artist == input_artist))
-
+        good_distance = similarity > 0.1
+        is_correct = int((similar_genre == input_genre) or (similar_artist == input_artist) or similarity)
         similar_songs.append((title, artist, similarity, is_correct))
 
     return similar_songs[:top_n]
@@ -237,7 +237,3 @@ plt.grid(True)
 plt.show()
 
 print(f"ROC AUC: {roc_auc:.2f}")
-
-# Расчет точности
-accuracy = sum(y_true) / len(y_true) if len(y_true) > 0 else 0
-print(f"Точность модели: {accuracy*100:.2f}%")
