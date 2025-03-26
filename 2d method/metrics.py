@@ -98,7 +98,7 @@ if __name__ == "__main__":
         {"query_filepath": "../wav_folder/Linkin_Park_-_One_More_Light.wav", "true_song_id": 18},
         {"query_filepath": "../wav_folder/Linkin_Park_-_What_Ive_Done.wav", "true_song_id": 19},
         {"query_filepath": "../wav_folder/Loc-Dog_-_V_tojj_vesne.wav", "true_song_id": 20},
-        # ...
+
     ]
 
     db_path = "fingerprint_db.pkl"
